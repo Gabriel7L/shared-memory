@@ -5,7 +5,7 @@
 
 ReadMem::ReadMem()
 {
-    this->data = new PosixShMem("SH_MEM",sizeof(TIMESTAMPED_TEST_DATA));
+    this->data = new PosixShMem("SH_MEM",sizeof(Timestamped_TEST_DATA));
     this->startActivity();
 }
 
@@ -33,10 +33,10 @@ int ReadMem::run()
     this->tim1.tv_sec = 0;
     this->tim1.tv_nsec = 100000000L;//10Hz
 
-    TIMESTAMPED_TEST_DATA my_data;
+    Timestamped_TEST_DATA my_data;
     while(this->is_alive)
     {
-        this->data->read(&my_data, sizeof(TIMESTAMPED_TEST_DATA));
+        this->data->read(&my_data, sizeof(Timestamped_TEST_DATA));
         
         std::cout << "Cont: " << my_data.data.contador << "  TEMPO: " << my_data.time << std::endl;
         nanosleep(&this->tim1, &this->tim2);

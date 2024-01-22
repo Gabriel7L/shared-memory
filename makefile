@@ -7,4 +7,4 @@ OPENCV = opencv
 INCLUDES = -I ..
 
 
-$(CC) $(LDFLAGS) test.o -o test -lopencv_core -lopencv_highgui
+$(CC) $(LDFLAGS) opencv-saveimage.o -o opencv-saveimage -lopencv_core -lopencv_highgui

@@ -9,7 +9,7 @@ using namespace cv;
 using namespace std;
 
 int main(){
-  VideoCapture cap(0);
+  VideoCapture cap(0, CAP_V4L2);
   if(!cap.isOpened()){
     cout << "Error opening video stream" << endl;
     return -1;
@@ -27,6 +27,8 @@ int main(){
     bool writedSuccessfully = imwrite("./images/" + to_string(m_TEST_DATA) + ".png", frame);
     if (writedSuccessfully){
       cout<< "Image saved" << endl;
+    }else{
+      cout <<"Error writing image" << endl;
     }
   }
   cout<< "Image capture finished" << endl;
